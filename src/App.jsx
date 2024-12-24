@@ -4,7 +4,6 @@ import About from "./components/About";
 import Gallery from "./pages/Gallery";
 import RSVP from "./pages/RSVP";
 import LandingPage from "./pages/LandingPage";
-import PhotoSharing from "./pages/photosharing";
 
 
 
@@ -25,10 +24,8 @@ function App() {
     },
     {path: "/rsvp", 
       element: <RSVP/>,
-    },
-    {path: "/share", 
-      element: <PhotoSharing/>,
     }
+    
   ])
 
   return <RouterProvider router={router}/>;
