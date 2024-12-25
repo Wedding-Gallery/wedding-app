@@ -4,6 +4,8 @@ import About from "./components/About";
 import Gallery from "./pages/Gallery";
 import RSVP from "./pages/RSVP";
 import LandingPage from "./pages/LandingPage";
+import MessageSection from "./pages/MessageSection";
+import GalleryUploadSection from "./components/GalleryUpload";
 
 
 
@@ -18,6 +20,12 @@ function App() {
     },
     {path: "/about",
       element: <About/>,
+    },
+    {path: "/message",
+      element: <MessageSection/>,
+    },
+    {path: "/upload",
+      element: <GalleryUploadSection/>
     },
     {path: "/gallery",
       element: <Gallery/> ,
