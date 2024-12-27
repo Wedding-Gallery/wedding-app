@@ -6,7 +6,7 @@ import RSVP from "./pages/RSVP";
 import LandingPage from "./pages/LandingPage";
 import MessageSection from "./pages/MessageSection";
 import GalleryUploadSection from "./components/GalleryUpload";
-
+import Venue from "./pages/Venue";
 
 
 function App() {
@@ -21,6 +21,10 @@ function App() {
     {path: "/about",
       element: <About/>,
     },
+  {
+    path: "/venue",
+    element: <Venue/>,
+  },
     {path: "/message",
       element: <MessageSection/>,
     },
