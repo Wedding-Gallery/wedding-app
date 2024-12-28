@@ -20,18 +20,18 @@ const LandingPage = () => {
 
   const [daysToGo, setDaysToGo] = useState(0);
 
-  // Countdown Timer Logic
-  useEffect(() => {
-    const weddingDate = new Date("2024-12-28T00:00:00");
-    const calculateDaysLeft = () => {
-      const now = new Date();
-      const timeDiff = weddingDate - now;
-      setDaysToGo(Math.ceil(timeDiff / (1000 * 60 * 60 * 24)));
-    };
-    calculateDaysLeft();
-    const timer = setInterval(calculateDaysLeft, 1000 * 60 * 60); // Update every hour
-    return () => clearInterval(timer);
-  }, []);
+  // // Countdown Timer Logic
+  // useEffect(() => {
+  //   const weddingDate = new Date("2024-12-28T00:00:00");
+  //   const calculateDaysLeft = () => {
+  //     const now = new Date();
+  //     const timeDiff = weddingDate - now;
+  //     setDaysToGo(Math.ceil(timeDiff / (1000 * 60 * 60 * 24)));
+  //   };
+  //   calculateDaysLeft();
+  //   const timer = setInterval(calculateDaysLeft, 1000 * 60 * 60); // Update every hour
+  //   return () => clearInterval(timer);
+  // }, []);
 
   return (
     <div className="relative h-screen w-full">
@@ -78,7 +78,7 @@ const LandingPage = () => {
           for our special day.
         </p>
         <p className="text-lg sm:text-xl font-semibold mt-2 text-gray-300 mb-6">
-          {daysToGo} Days to Go!
+           It's Today!
         </p>
         <Link to="/home">
           <button className="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-lg text-lg shadow-md transition-transform duration-300 hover:scale-105">

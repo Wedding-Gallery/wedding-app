@@ -91,16 +91,28 @@ const Gallery = () => {
     }
   };
 
-  // Delete Gallery Item
-  const handleDeleteGallery = async (id) => {
-    try {
-      await apiDelGallery(id);
-      setGalleryItems((prev) => prev.filter((item) => item.id !== id));
-      Swal.fire("Success", "Gallery item deleted successfully!", "success");
-    } catch (err) {
-      Swal.fire("Error", "Failed to delete gallery item.", "error");
-      console.error(err);
-    }
+  // Delete Gallery Item with Confirmation
+  const handleDeleteGallery = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "This action cannot be undone!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await apiDelGallery(id);
+          setGalleryItems((prev) => prev.filter((item) => item.id !== id));
+          Swal.fire("Deleted!", "Gallery item has been deleted.", "success");
+        } catch (err) {
+          Swal.fire("Error", "Failed to delete gallery item.", "error");
+          console.error(err);
+        }
+      }
+    });
   };
 
   if (loading) return <p>Loading...</p>;
@@ -118,21 +130,21 @@ const Gallery = () => {
               className="bg-white shadow-lg rounded-lg overflow-hidden"
             >
               <img
-                src={photo.image}
+                src={`https://savefiles.org/${photo.image}?shareable_link=564`}
                 alt={photo.message}
-                className="w-full h-48 object-cover"
+                className="w-full h-auto object-cover"
               />
               <div className="p-4">
                 <h3 className="text-lg font-bold">{photo.name || "Anonymous"}</h3>
                 <p className="text-gray-500 text-sm">{photo.createdAt}</p>
                 <p className="text-gray-700 mt-2 text-sm">{photo.message}</p>
                 <div className="flex justify-end mt-4 space-x-3">
-                  <button
-                  className="text-[#C1FF72] hover:text-[#167D56]"
+                  {/* <button
+                    className="text-[#C1FF72] hover:text-[#167D56]"
                     onClick={() => handleViewDetails(photo.id)}
                   >
                     <FaShareAlt className="text-xl" />
-                  </button>
+                  </button> */}
                   <button
                     className="text-[#C1FF72] hover:text-[#167D56]"
                     onClick={() => {
@@ -196,7 +208,7 @@ const Gallery = () => {
             <img
               src={modalItem.image}
               alt={modalItem.message}
-              className="w-full h-48 object-cover mb-4"
+              className="w-full h-auto object-cover mb-4"
             />
             {isEditing ? (
               <>

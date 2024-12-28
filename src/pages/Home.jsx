@@ -27,16 +27,19 @@ function Home() {
           <p className="text-lg font-light mb-6">
             We can't wait to share our love and joy with you.
           </p>
-         <Link to="/message">
-         <button className="px-6 mr-4 py-3 bg-yellow-500 text-white rounded-full shadow-lg hover:bg-yellow-700 transition duration-300">
-            Send us a message
-          </button>
-          </Link>
-          <Link to="/upload">
-          <button className="px-6 py-3 bg-[#ade95f] text-gray-500 rounded-full shadow-lg hover:bg-[#166534] hover:text-white transition duration-300">
-            Post a photo/video
-          </button>
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+  <Link to="/message">
+    <button className="px-6 py-3 bg-yellow-500 text-white rounded-full shadow-lg hover:bg-yellow-700 transition duration-300">
+      Send us a message
+    </button>
+  </Link>
+  <Link to="/upload">
+    <button className="px-6 py-3 bg-[#ade95f] text-gray-500 rounded-full shadow-lg hover:bg-[#166534] hover:text-white transition duration-300">
+      Post a photo/video
+    </button>
+  </Link>
+</div>
+
         </div>
       </section>
 
@@ -61,7 +64,7 @@ function Home() {
               <p className="text-lg text-gray-700 leading-8 mt-4 font-medium">
                 With love,
                 <br />
-                <span className="font-semibold">Albert & Nidhi</span>
+                <span className="font-bold">Albert & Nidhi</span>
               </p>
             </div>
 
